@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainMenu">
+
+    <fragment
+        android:id="@+id/mainMenu"
+        android:name="com.emrsa.stargazers.view.MainMenu"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/action_mainMenu_to_storytell"
+            app:destination="@id/storytell" />
+    </fragment>
+    <fragment
+        android:id="@+id/storytell"
+        android:name="com.emrsa.stargazers.view.Storytell"
+        android:label="fragment_storytell"
+        tools:layout="@layout/fragment_storytell" >
+        <action
+            android:id="@+id/action_storytell_to_imageList"
+            app:destination="@id/imageList" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageList"
+        android:name="com.emrsa.stargazers.view.ImageList"
+        android:label="fragment_image_list"
+        tools:layout="@layout/fragment_image_list" >
+        <action
+            android:id="@+id/action_imageList_to_imageDescription"
+            app:destination="@id/imageDescription" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageDescription"
+        android:name="com.emrsa.stargazers.view.ImageDescription"
+        android:label="fragment_image_description"
+        tools:layout="@layout/fragment_image_description" >
+        <action
+            android:id="@+id/action_imageDescription_to_extendedImageView"
+            app:destination="@id/extendedImageView" />
+    </fragment>
+    <fragment
+        android:id="@+id/extendedImageView"
+        android:name="com.emrsa.stargazers.view.ExtendedImageView"
+        android:label="fragment_extended_image_view"
+        tools:layout="@layout/fragment_extended_image_view" />
+</navigation>
