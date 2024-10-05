@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Define the solid background color (optional) -->
+    <solid android:color="@android:color/transparent" />  <!-- Transparent background -->
+
+    <!-- Define the stroke (border) -->
+    <stroke
+        android:width="4dp"
+        android:color="@android:color/transparent" />
+
+    <!-- Define the corner radius (optional, for rounded corners) -->
+    <corners android:radius="75dp" />  <!-- Rounded corners -->
+
+    <!-- Add padding (optional, for spacing inside the border) -->
+    <padding
+        android:left="10dp"
+        android:right="10dp"
+        android:top="5dp"
+        android:bottom="5dp" />
+
+
+</shape>

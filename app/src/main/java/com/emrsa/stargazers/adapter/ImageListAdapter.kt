@@ -2,6 +2,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.emrsa.stargazers.ListItem
+import com.emrsa.stargazers.databinding.ItemBoldDescriptionBinding
 import com.emrsa.stargazers.databinding.ItemDescriptionBinding
 import com.emrsa.stargazers.databinding.ItemImageDescriptionBinding
 
@@ -13,11 +14,12 @@ class ImageListAdapter(
     companion object {
         const val VIEW_TYPE_DESCRIPTION = 0
         const val VIEW_TYPE_IMAGE_DESCRIPTION = 1
+        const val VIEW_TYPE_BOLD_DESCRIPTION = 2
     }
 
     // ViewBinding kullanan ViewHolder sınıfları
     inner class DescriptionViewHolder(val binding: ItemDescriptionBinding) : RecyclerView.ViewHolder(binding.root)
-
+    inner class BoldDescriptionViewHolder(val binding: ItemBoldDescriptionBinding) : RecyclerView.ViewHolder(binding.root)
     inner class ImageDescriptionViewHolder(val binding: ItemImageDescriptionBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
             // Öğeye tıklanabilirlik ekliyoruz
@@ -32,6 +34,7 @@ class ImageListAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return when (items[position]) {
+            is ListItem.BoldDescription -> VIEW_TYPE_BOLD_DESCRIPTION
             is ListItem.Description -> VIEW_TYPE_DESCRIPTION
             is ListItem.ImageDescription -> VIEW_TYPE_IMAGE_DESCRIPTION
         }
@@ -47,6 +50,10 @@ class ImageListAdapter(
                 val binding = ItemImageDescriptionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
                 ImageDescriptionViewHolder(binding)
             }
+            VIEW_TYPE_BOLD_DESCRIPTION -> {
+                val binding = ItemBoldDescriptionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                BoldDescriptionViewHolder(binding)
+            }
             else -> throw IllegalArgumentException("Invalid view type")
         }
     }
@@ -59,6 +66,9 @@ class ImageListAdapter(
             is ListItem.ImageDescription -> {
                 (holder as ImageDescriptionViewHolder).binding.imageView.setImageResource(currentItem.imageResId)
                 holder.binding.descriptionText.text = currentItem.description
+            }
+            is ListItem.BoldDescription -> {
+                (holder as BoldDescriptionViewHolder).binding.descriptionText.text = currentItem.description
             }
         }
     }

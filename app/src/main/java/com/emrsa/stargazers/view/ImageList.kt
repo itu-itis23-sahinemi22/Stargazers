@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
+import com.bumptech.glide.Glide
 import com.emrsa.stargazers.ListItem
 import com.emrsa.stargazers.R
 import com.emrsa.stargazers.databinding.FragmentImageListBinding
@@ -26,17 +27,18 @@ class ImageList: Fragment() {
         _binding = FragmentImageListBinding.inflate(inflater, container, false)
         val view = binding.root
 
+
         val items = mutableListOf(
-            ListItem.Description("Bağımsız AçıklamaBağımsız AçıklamaBağımsız AçıklamaBağımsız AçıklamaBağımsız " +
-                    "AçıklamaBağımsız AçıklamaBağımsız AçıklamaBağımsız Açıklama"),
-            ListItem.ImageDescription(R.drawable.image1, "Açıklama 1"),
-            ListItem.ImageDescription(R.drawable.image2, "Açıklama 2"),
-            ListItem.ImageDescription(R.drawable.image3, "Açıklama 3"),
-            ListItem.ImageDescription(R.drawable.image4, "Açıklama 4"),
-            ListItem.ImageDescription(R.drawable.image5, "Açıklama 5"),
-            ListItem.ImageDescription(R.drawable.image6, "Açıklama 6"),
-            ListItem.ImageDescription(R.drawable.image7, "Açıklama 7"),
-            ListItem.ImageDescription(R.drawable.image8, "Açıklama 8")
+            ListItem.BoldDescription("WEBB SPACE TELESCOPE "),
+            ListItem.Description("Click Images for more information."),
+            ListItem.ImageDescription(R.drawable.image1, "NGC 5468"),
+            ListItem.ImageDescription(R.drawable.image2, "Rho Ophiuchi"),
+            ListItem.ImageDescription(R.drawable.image3, "Ring Nebula"),
+            ListItem.ImageDescription(R.drawable.image4, "Crab Nebula"),
+            ListItem.ImageDescription(R.drawable.image5, "IC 348"),
+            ListItem.ImageDescription(R.drawable.image6, "HH 221"),
+            ListItem.ImageDescription(R.drawable.image7, "Comet 238P/Read"),
+            ListItem.ImageDescription(R.drawable.image8, "NGC 5584")
         )
 
         adapter = ImageListAdapter(items){ position ->
@@ -51,6 +53,7 @@ class ImageList: Fragment() {
                 return when (adapter.getItemViewType(position)) {
                     ImageListAdapter.VIEW_TYPE_DESCRIPTION -> 2 // Tam satır genişliği
                     ImageListAdapter.VIEW_TYPE_IMAGE_DESCRIPTION -> 1 // Normal öğe
+                    ImageListAdapter.VIEW_TYPE_BOLD_DESCRIPTION -> 2
                     else -> 1
                 }
             }
@@ -60,6 +63,14 @@ class ImageList: Fragment() {
         binding.recyclerView.adapter = adapter
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.space_bg) // Replace with your actual GIF file in res/drawable
+            .into(binding.backgroundGif) // Reference to the background_gif ImageView
     }
 
     override fun onDestroyView() {

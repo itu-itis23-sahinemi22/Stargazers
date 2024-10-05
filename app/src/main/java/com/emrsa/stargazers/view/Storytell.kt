@@ -4,14 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
+import com.bumptech.glide.Glide
 import com.emrsa.stargazers.R
 import com.emrsa.stargazers.databinding.FragmentStorytellBinding
-import kotlinx.coroutines.*
 
 class Storytell : Fragment() {
 
@@ -22,37 +22,60 @@ class Storytell : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+
+    ): View? {
         _binding = FragmentStorytellBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Find the TextView by its ID
-        val storyText: TextView = binding.storyText
+        binding.storyText.setOnClickListener{
+            Navigation.findNavController(this@Storytell.requireView()).navigate(R.id.action_storytell_to_imageList)
+        }
+        // Load the background GIF
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.bg_stars) // Replace with your actual GIF file
+            .into(binding.backgroundGif) // Reference to the background_gif ImageView
 
-        // Load the animation from the anim resource
+        // Find the TextView by its ID
+        val storyText: TextView = view.findViewById(R.id.storyText)
+
+        // Load the slide-up animation from the anim resource
         val slideUpAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_up)
+
+        // Apply an AnimationListener to detect when the story text animation ends
+        slideUpAnimation.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation?) {
+                // Optionally handle when the animation starts
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+                // When the text animation ends, start the button animation
+                val buttonAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.button_appear)
+                binding.myButton.startAnimation(buttonAnimation) // Start button animation
+                binding.myButton.visibility = View.VISIBLE // Make the button visible (if it was hidden initially)
+
+
+            }
+
+            override fun onAnimationRepeat(animation: Animation?) {
+                // Optionally handle when the animation repeats
+            }
+        })
 
         // Start the animation on the TextView
         storyText.startAnimation(slideUpAnimation)
 
-        lifecycleScope.launch {
-            delay(1000L) // 1 saniye gecikme
-            val button = binding.storytellNextButton
-            button.visibility = View.VISIBLE
-            button.setOnClickListener {
-                Navigation.findNavController(requireView()).navigate(R.id.action_storytell_to_imageList)
-            }
-        }
+        // Optionally hide the button initially
+        binding.myButton.visibility = View.INVISIBLE
+    }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

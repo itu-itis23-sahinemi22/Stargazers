@@ -11,28 +11,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/space_bg"
+        android:src="@drawable/bg_stars"
         android:contentDescription="Background GIF" />
 
     <!-- Your logo over the background -->
 
     <ImageView
         android:id="@+id/logo_image"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
         android:src="@drawable/circular_logo"
         app:layout_constraintBottom_toTopOf="@+id/nextDescriptionTextView1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/metuStargazersTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/metuStargazersTextView"
+        app:layout_constraintVertical_bias="0.579" />
 
     <TextView
         android:id="@+id/metuStargazersTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:background="@drawable/border_text"
+        android:layout_marginTop="75dp"
         android:text="METU STARGAZERS"
+        android:fontFamily="monospace"
         android:textColor="@color/white"
         android:textSize="40dp"
         android:textStyle="bold"
@@ -46,12 +50,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Click on the screen..."
-        android:textSize="30dp"
+        android:textSize="25dp"
+        android:fontFamily="monospace"
         android:textColor="#A6FFFFFF"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="@+id/background_gif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The Universe of Music"
+        android:layout_marginTop="10dp"
+        android:textColor="#C6FFFFFF"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/metuStargazersTextView" />
 
     <!-- Button under the logo -->
 
