@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.Storytell">
+    android:background="#000000">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_gravity="bottom"
+        android:fillViewport="true">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/storyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFD700"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:text="Once upon a time in a galaxy far, far away...\n\nOnce upon a time in a galaxy far, far away...\n\nOnce upon a time in a galaxy far, far away...\n\nOnce upon a time in a galaxy far, far away...\n\nOnce upon a time in a galaxy far, far away...\n\nOnce upon a time in a galaxy far, far away...\n\nOnce upon a time in a galaxy far, far away...\n\n
+                        "
+                android:lineSpacingExtra="10dp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

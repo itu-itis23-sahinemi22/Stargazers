@@ -1,7 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.MainMenu"/>
+    android:layout_height="match_parent">
+
+    <!-- ImageView to play the GIF in the background -->
+    <ImageView
+        android:id="@+id/background_gif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/space_bg"
+        android:contentDescription="Background GIF" />
+
+    <!-- Your logo over the background -->
+
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+
+        android:src="@drawable/circular_logo"
+        app:layout_constraintBottom_toTopOf="@+id/nextDescriptionTextView1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/metuStargazersTextView" />
+
+    <TextView
+        android:id="@+id/metuStargazersTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="METU STARGAZERS"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nextDescriptionTextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click on the screen..."
+        android:textSize="30dp"
+        android:textColor="#A6FFFFFF"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/background_gif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Button under the logo -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
