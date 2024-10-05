@@ -10,8 +10,9 @@
         android:id="@+id/descriptionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="monospace"
         android:textSize="24sp"
-        android:paddingTop="8dp"
+        android:paddingTop="12dp"
         android:textStyle="bold"
         android:textColor="@color/white"/>
 </LinearLayout>

@@ -32,9 +32,7 @@ class Storytell : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.storyText.setOnClickListener{
-            Navigation.findNavController(this@Storytell.requireView()).navigate(R.id.action_storytell_to_imageList)
-        }
+
         // Load the background GIF
         Glide.with(this)
             .asGif()
@@ -46,6 +44,7 @@ class Storytell : Fragment() {
 
         // Load the slide-up animation from the anim resource
         val slideUpAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_up)
+        val buttonAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.button_appear)
 
         // Apply an AnimationListener to detect when the story text animation ends
         slideUpAnimation.setAnimationListener(object : Animation.AnimationListener {
@@ -55,12 +54,29 @@ class Storytell : Fragment() {
 
             override fun onAnimationEnd(animation: Animation?) {
                 // When the text animation ends, start the button animation
-                val buttonAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.button_appear)
                 binding.myButton.startAnimation(buttonAnimation) // Start button animation
                 binding.myButton.visibility = View.VISIBLE // Make the button visible (if it was hidden initially)
 
 
+
             }
+
+
+            override fun onAnimationRepeat(animation: Animation?) {
+                // Optionally handle when the animation repeats
+            }
+        })
+
+        buttonAnimation.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation?) {
+                // Optionally handle when the animation starts
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+                Navigation.findNavController(this@Storytell.requireView()).navigate(R.id.action_storytell_to_imageList)
+
+            }
+
 
             override fun onAnimationRepeat(animation: Animation?) {
                 // Optionally handle when the animation repeats

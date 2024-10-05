@@ -25,7 +25,11 @@
         tools:layout="@layout/fragment_storytell" >
         <action
             android:id="@+id/action_storytell_to_imageList"
-            app:destination="@id/imageList" />
+            app:destination="@id/imageList"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/imageList"
@@ -34,7 +38,11 @@
         tools:layout="@layout/fragment_image_list" >
         <action
             android:id="@+id/action_imageList_to_imageDescription"
-            app:destination="@id/imageDescription" />
+            app:destination="@id/imageDescription"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/imageDescription"
@@ -43,7 +51,11 @@
         tools:layout="@layout/fragment_image_description" >
         <action
             android:id="@+id/action_imageDescription_to_extendedImageView"
-            app:destination="@id/extendedImageView" />
+            app:destination="@id/extendedImageView"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <argument
             android:name="position"
             app:argType="integer" />

@@ -2,19 +2,19 @@
 <set xmlns:android="http://schemas.android.com/apk/res/android"
     android:interpolator="@android:anim/accelerate_decelerate_interpolator">
 
-    <!-- Scale up animation from 0.7 to full size (1.0) -->
+    <!-- Scale up animation from 0 to big -->
     <scale
-        android:duration="2000"
+        android:duration="6500"
         android:fromXScale="0"
         android:fromYScale="0"
-        android:toXScale="1.0"
-        android:toYScale="1.0"
+        android:toXScale="39.0"
+        android:toYScale="35.0"
         android:pivotX="50%"
         android:pivotY="50%" />
 
     <!-- Fade in animation from 0 to fully visible (1) -->
     <alpha
-        android:duration="2500"
+        android:duration="1000"
         android:fromAlpha="0.0"
         android:toAlpha="1.0" />
 

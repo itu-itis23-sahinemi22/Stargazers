@@ -14,14 +14,15 @@
         android:src="@drawable/bg_stars"
         android:contentDescription="Background GIF" />
 
-    <Button
+    <TextView
         android:id="@+id/myButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/border_button"
-        android:backgroundTint="@null"
+        android:textColor="#FFC107"
 
-        android:text="Continue"
+        android:text="Let's begin"
+        android:fontFamily="monospace"
         android:textSize="50dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,10 +44,11 @@
             android:id="@+id/storyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:textAlignment="center"
             android:layout_gravity="center"
             android:lineSpacingExtra="10dp"
-            android:text="Humanity's journey has always\n\nbeen driven by a desire to\n\nexplore the unknown. From\n\ncrossing oceans to landing\n\non the moon, we've never\n\nstopped reaching for new frontiers.\n\nNow, the next great adventure\n\nawaits. Mankind will migrate into\n\nspace, and will cross the airless\n\nSaharas which separate\n\nplanet from planet,\n\nsun from sun.
+            android:text="Humanity's journey has \n\nalways been driven by\n\n a desire to explore\n\n the unknown. From crossing\n\n oceans to landing on the\n\n moon, we've never stopped\n\n reaching for new frontiers.\n\nNow, the next epic adventure\n\n awaits. Mankind will \n\nmigrate into space, \n\nand will cross the airless\n\nSaharas which separate\n\nplanet from planet,\n\nsun from sun.
 "
             android:textColor="#FFD700"
             android:textSize="24sp"

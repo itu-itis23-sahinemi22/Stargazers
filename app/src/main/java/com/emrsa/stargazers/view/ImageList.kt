@@ -44,6 +44,7 @@ class ImageList: Fragment() {
         adapter = ImageListAdapter(items){ position ->
             val action = ImageListDirections.actionImageListToImageDescription(position)
             Navigation.findNavController(view).navigate(action)
+            println(position)
         }
 
         val layoutManager = GridLayoutManager(context, 2)

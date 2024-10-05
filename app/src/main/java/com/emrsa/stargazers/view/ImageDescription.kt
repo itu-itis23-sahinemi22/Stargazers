@@ -55,13 +55,13 @@ class ImageDescription : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Glide.with(this)
             .asGif()
-            .load(R.drawable.bg_stars) // Replace with your actual GIF file in res/drawable
+            .load(R.drawable.space_bg) // Replace with your actual GIF file in res/drawable
             .into(binding.backgroundGif) // Reference to the background_gif ImageView
         val args: ImageDescriptionArgs by navArgs()
         val position = args.position
 
-        binding.imageView.setImageResource(imageList[position-1])
-        binding.descriptionText.text = textList[position-1]
+        binding.imageView.setImageResource(imageList[position-2])
+        binding.descriptionText.text = textList[position-2]
 
         binding.imageView.setOnClickListener {
             val action = ImageDescriptionDirections.actionImageDescriptionToExtendedImageView(position)

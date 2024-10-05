@@ -5,13 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.ExtendedImageView">
-
     <ImageView
         android:id="@+id/spaceImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:src="@drawable/image1"
-        android:scaleType="fitXY"
+        android:scaleType="fitXY" />
 
-         />
 </FrameLayout>
