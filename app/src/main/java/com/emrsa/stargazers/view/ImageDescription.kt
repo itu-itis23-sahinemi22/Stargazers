@@ -36,6 +36,16 @@ class ImageDescription : Fragment() {
         ,"This image of Comet 238P/Read was captured by the NIRCam (Near-Infrared Camera) instrument on NASA’s James Webb Space Telescope on September 8, 2022. It displays the hazy halo, called the coma, and tail that are characteristic of comets, as opposed to asteroids."
         ,"Combined observations from NASA’s NIRCam (Near-Infrared Camera) and Hubble’s WFC3 (Wide Field Camera 3) show spiral galaxy NGC 5584, which resides 72 million light-years away from Earth."
     )
+    private val titleList = mutableListOf(
+        "NGC 5468",
+        "Rho Ophiuchi",
+        "Ring Nebula",
+        "Crab Nebula",
+        "IC 348",
+        "HH 221",
+        "Comet 238P/Read",
+        "NGC 5584"
+    )
 
     fun getImageList() :  MutableList<Int>{
         return imageList
@@ -62,7 +72,7 @@ class ImageDescription : Fragment() {
 
         binding.imageView.setImageResource(imageList[position-2])
         binding.descriptionText.text = textList[position-2]
-
+        binding.titleOfImage.text = titleList[position-2]
         binding.imageView.setOnClickListener {
             val action = ImageDescriptionDirections.actionImageDescriptionToExtendedImageView(position)
             Navigation.findNavController(view).navigate(action)
