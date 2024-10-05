@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_imageDescription_to_extendedImageView"
             app:destination="@id/extendedImageView" />
+        <argument
+            android:name="position"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/extendedImageView"
