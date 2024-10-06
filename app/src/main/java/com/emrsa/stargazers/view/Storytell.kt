@@ -1,5 +1,6 @@
 package com.emrsa.stargazers.view
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -73,7 +74,8 @@ class Storytell : Fragment() {
             }
 
             override fun onAnimationEnd(animation: Animation?) {
-                Navigation.findNavController(this@Storytell.requireView()).navigate(R.id.action_storytell_to_imageList)
+                Navigation.findNavController(this@Storytell.requireView())
+                    .navigate(R.id.action_storytell_to_imageList)
 
             }
 
@@ -89,7 +91,10 @@ class Storytell : Fragment() {
         // Optionally hide the button initially
         binding.myButton.visibility = View.INVISIBLE
     }
-
+    override fun onResume() {
+        super.onResume()
+        requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

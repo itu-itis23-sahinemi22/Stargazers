@@ -1,5 +1,6 @@
 package com.emrsa.stargazers.view
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -37,7 +38,10 @@ class MainMenu : Fragment() {
                     View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         return view
     }
-
+    override fun onResume() {
+        super.onResume()
+        requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Glide.with(this)

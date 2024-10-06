@@ -1,5 +1,6 @@
 package com.emrsa.stargazers.view
 
+import android.content.pm.ActivityInfo
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
@@ -29,7 +30,10 @@ class ExtendedImageView : Fragment() {
     // Stores sound IDs for the guitar and bass
     private var guitarSounds = mutableMapOf<String, Int>()
     private var bassSounds = mutableMapOf<String, Int>()
-
+    override fun onResume() {
+        super.onResume()
+        requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -109,8 +113,6 @@ class ExtendedImageView : Fragment() {
 
         return inSampleSize
     }
-
-
 
 
     private fun loadSounds() {

@@ -1,5 +1,6 @@
 package com.emrsa.stargazers.view
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -64,11 +65,17 @@ class ImageDescription : Fragment() {
         binding.descriptionText.text = textList[position-2]
 
         binding.imageView.setOnClickListener {
+
+
             val action = ImageDescriptionDirections.actionImageDescriptionToExtendedImageView(position)
             Navigation.findNavController(view).navigate(action)
+
         }
     }
-
+    override fun onResume() {
+        super.onResume()
+        requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
