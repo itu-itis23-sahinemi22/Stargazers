@@ -50,5 +50,5 @@ class MainActivity : AppCompatActivity() {
 
         // Uygulama kapandığında müzik servisini durdur
         stopService(Intent(this, MusicService::class.java))
-    }
+        }
 }

@@ -27,15 +27,6 @@ class MainMenu : Fragment() {
     ): View? {
         _binding = FragmentMainMenuBinding.inflate(inflater, container, false)
         val view = binding.root
-
-
-        requireActivity().window.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                    View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
-                    View.SYSTEM_UI_FLAG_FULLSCREEN or
-                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         return view
     }
     override fun onResume() {
@@ -107,6 +98,6 @@ class MainMenu : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
-    }
+        _binding=null
+        }
 }

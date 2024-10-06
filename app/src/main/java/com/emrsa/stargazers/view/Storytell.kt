@@ -97,6 +97,6 @@ class Storytell : Fragment() {
     }
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
-    }
+        _binding=null
+        }
 }

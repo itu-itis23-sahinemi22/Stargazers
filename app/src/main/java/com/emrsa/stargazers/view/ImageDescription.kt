@@ -27,6 +27,16 @@ class ImageDescription : Fragment() {
         ,R.drawable.image7
         ,R.drawable.image8
     )
+    private val titleList = mutableListOf(
+        "NGC 5468",
+        "Rho Ophiuchi",
+        "Ring Nebula",
+        "Crab Nebula",
+        "IC 348",
+        "HH 221",
+        "Comet 238P/Read",
+        "NGC 5584"
+    )
     private val textList = mutableListOf(
         "This image of NGC 5468, a galaxy located about 130 million light-years from Earth, combines data from the Hubble and James Webb space telescopes. This is the farthest galaxy in which Hubble has identified Cepheid variable stars.",
         "An active star-forming region. Red dual opposing jets coming from young stars fill the darker top half of the image, while a glowing pale-yellow, cave-like structure is bottom center, tilted toward two o’clock, with a bright star at its center.",
@@ -63,6 +73,7 @@ class ImageDescription : Fragment() {
 
         binding.imageView.setImageResource(imageList[position-2])
         binding.descriptionText.text = textList[position-2]
+        binding.titleOfImage.text = titleList[position-2]
 
         binding.imageView.setOnClickListener {
 
@@ -79,6 +90,5 @@ class ImageDescription : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
-    }
+        _binding =null}
 }

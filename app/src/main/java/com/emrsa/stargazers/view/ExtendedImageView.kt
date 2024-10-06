@@ -179,5 +179,5 @@ class ExtendedImageView : Fragment() {
         super.onDestroyView()
         _binding = null
         soundPool.release()
-    }
+        }
 }
