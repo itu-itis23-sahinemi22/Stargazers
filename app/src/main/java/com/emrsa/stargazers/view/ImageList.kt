@@ -1,6 +1,7 @@
 package com.emrsa.stargazers.view
 
 import ImageListAdapter
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -73,9 +74,12 @@ class ImageList: Fragment() {
             .load(R.drawable.space_bg) // Replace with your actual GIF file in res/drawable
             .into(binding.backgroundGif) // Reference to the background_gif ImageView
     }
-
+    override fun onResume() {
+        super.onResume()
+        requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    }
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
-    }
+        _binding=null
+        }
 }

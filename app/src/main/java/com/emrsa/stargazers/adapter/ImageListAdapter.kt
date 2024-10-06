@@ -37,6 +37,7 @@ class ImageListAdapter(
             is ListItem.BoldDescription -> VIEW_TYPE_BOLD_DESCRIPTION
             is ListItem.Description -> VIEW_TYPE_DESCRIPTION
             is ListItem.ImageDescription -> VIEW_TYPE_IMAGE_DESCRIPTION
+            else -> {3}
         }
     }
 
@@ -70,8 +71,9 @@ class ImageListAdapter(
             is ListItem.BoldDescription -> {
                 (holder as BoldDescriptionViewHolder).binding.descriptionText.text = currentItem.description
             }
+            else -> {3}
         }
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int=items.size
 }
