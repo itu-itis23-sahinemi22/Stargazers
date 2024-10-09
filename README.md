@@ -13,5 +13,14 @@
 Our app begins with an engaging storytelling animation designed to spark users' curiosity about space. Following the animation, users can explore a selection of stunning JWST images and learn detailed information about each one. Additionally, users can interact with the images by touching the screen, creating an immersive experience that allows them to "feel" the environment through the algorithm that turns space images into sound.
 
 ### Usage
-
-gifs will be added
+<p float="left">
+<img src="app/src/main/res/drawable/mainMenu.gif" alt="main_menu_ss" width="150"/>
+  &nbsp;&nbsp;&nbsp;
+<img src="app/src/main/res/drawable/storytell.gif" alt="main_menu_ss" width="150"/>
+  &nbsp;&nbsp;&nbsp;
+<img src="app/src/main/res/drawable/scrolling.gif" alt="main_menu_ss" width="150"/>
+  &nbsp;&nbsp;&nbsp;
+<img src="app/src/main/res/drawable/extendedView.gif" alt="main_menu_ss" width="150"/>
+  &nbsp;&nbsp;&nbsp;
+<img src="app/src/main/res/drawable/information.gif" alt="main_menu_ss" width="150"/>
+  &nbsp;&nbsp;&nbsp;
